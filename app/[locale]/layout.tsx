@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Fraunces, Inter } from "next/font/google";
 import "../globals.css";
@@ -79,6 +80,22 @@ export default function LocaleLayout({
   const locale: Locale = isLocale(params.locale) ? params.locale : defaultLocale;
   return (
     <html lang={hreflang[locale]}>
+      <head>
+        <Script
+          id="google-gtag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-868270889');`,
+          }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-868270889"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${fraunces.variable} ${inter.variable} font-sans`}>
         {children}
         <Analytics />
