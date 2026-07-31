@@ -6,7 +6,7 @@ const CONTACT_PHONE = "+381 67 774 7710";
 const CONTACT_EMAIL = "svojsmestaj@gmail.com";
 const INSTAGRAM_URL = "https://instagram.com/svojsmestaj";
 
-export function getContactLinks(waMessage: string) {
+export function getContactLinks(waMessage: string, emailSubject?: string) {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_NUMBER;
   const telegramHandle = process.env.NEXT_PUBLIC_TELEGRAM_HANDLE || TELEGRAM_HANDLE;
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || CONTACT_PHONE;
@@ -19,7 +19,9 @@ export function getContactLinks(waMessage: string) {
     phone,
     phoneHref: `tel:${phone.replace(/[^+\d]/g, "")}`,
     email,
-    emailHref: `mailto:${email}`,
+    emailHref: emailSubject
+      ? `mailto:${email}?subject=${encodeURIComponent(emailSubject)}`
+      : `mailto:${email}`,
     instagram,
   };
 }

@@ -38,7 +38,7 @@
   "value3Title": "Sitne izmene uključene",
   "value3Text": "Promena cene, teksta ili slike — javite se, sredimo bez dodatne naplate.",
   "value4Title": "Podrška kad zatreba",
-  "value4Text": "Pišete nam na WhatsApp ili Telegram, odgovaramo lično — ne čekate u redu.",
+  "value4Text": "Pišete nam na WhatsApp, Telegram ili mejl, odgovaramo lično — ne čekate u redu.",
   "valueCardPeriod": "mesečno",
   "valueCardText": "Manje od jednog burgera — a sajt vam radi, čuva se i ostaje brz, bez da vi razmišljate o tome.",
   "valueCardQuip": "Otkažete kad god želite. Sajt ostaje vaš.",
@@ -100,7 +100,9 @@
   "finalText": "Bez obaveze. Napišite nam par rečenica o vašem smeštaju i javljamo se u toku dana.",
   "finalBtnWA": "Piši na WhatsApp",
   "finalBtnTG": "Piši na Telegram",
+  "finalBtnEmail": "Piši na mejl",
   "waMsg": "Zdravo! Zanima me sajt za moj smeštaj.",
+  "emailSubject": "Upit za sajt za smeštaj",
   "footerRights": "Sva prava zadržana.",
   "heroBadge": "Sajt gotov za manje od nedelju dana"
 }

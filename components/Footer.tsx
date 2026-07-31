@@ -2,7 +2,7 @@ import type { Dictionary } from "../lib/dictionaries";
 import { getContactLinks } from "../lib/links";
 
 export default function Footer({ dict }: { dict: Dictionary }) {
-  const links = getContactLinks(dict.waMsg);
+  const links = getContactLinks(dict.waMsg, dict.emailSubject);
 
   return (
     <footer className="px-6 pb-14 pt-6 text-[13.5px] text-ink-soft">
