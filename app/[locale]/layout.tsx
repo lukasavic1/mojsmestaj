@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "../globals.css";
-import { locales, isLocale, defaultLocale, type Locale } from "../../lib/i18n-config";
+import {
+  locales,
+  isLocale,
+  defaultLocale,
+  hreflang,
+  ogLocale,
+  type Locale,
+} from "../../lib/i18n-config";
 import { getDictionary } from "../../lib/dictionaries";
 
 const fraunces = Fraunces({
@@ -29,11 +36,14 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
-  const languages: Record<string, string> = {};
+  // Search engines ignore malformed hreflang values, so each locale needs a
+  // valid BCP-47 tag — "me" is a country code, not a language.
+  const languages: Record<string, string> = { "x-default": `${base}/${defaultLocale}` };
   locales.forEach((l) => {
-    languages[l] = `${base}/${l}`;
+    languages[hreflang[l]] = `${base}/${l}`;
   });
 
+  // og:image / twitter:image come from app/[locale]/opengraph-image.tsx.
   return {
     title: dict.meta.title,
     description: dict.meta.description,
@@ -46,8 +56,9 @@ export async function generateMetadata({
       title: dict.meta.title,
       description: dict.meta.description,
       url: `${base}/${locale}`,
-      locale,
+      locale: ogLocale[locale],
       type: "website",
+      siteName: dict.brand,
     },
     twitter: {
       card: "summary_large_image",
@@ -66,7 +77,7 @@ export default function LocaleLayout({
 }) {
   const locale: Locale = isLocale(params.locale) ? params.locale : defaultLocale;
   return (
-    <html lang={locale === "me" ? "sr" : locale}>
+    <html lang={hreflang[locale]}>
       <body className={`${fraunces.variable} ${inter.variable} font-sans`}>
         {children}
       </body>

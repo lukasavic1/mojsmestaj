@@ -14,13 +14,13 @@ export default function LangSwitch({ current }: { current: Locale }) {
   }
 
   return (
-    <div className="flex gap-1 rounded-full border border-sea/10 bg-paper p-1">
+    <div className="flex flex-none gap-0.5 rounded-full border border-sea/10 bg-paper p-1 sm:gap-1">
       {locales.map((locale) => (
         <button
           key={locale}
           onClick={() => switchTo(locale)}
           aria-current={locale === current}
-          className={`rounded-full px-3 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
+          className={`rounded-full px-2 py-1.5 text-[11px] font-semibold tracking-wide transition-colors sm:px-3 sm:text-xs ${
             locale === current
               ? "bg-sea text-paper"
               : "text-ink-soft hover:bg-sand-deep"

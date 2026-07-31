@@ -1,4 +1,4 @@
-# MojSmeštaj — landing page
+# SvojSmeštaj — landing page
 
 Next.js 14 (App Router) landing page for the accommodation-website business, built for SEO and multi-language support.
 

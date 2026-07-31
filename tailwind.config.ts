@@ -7,6 +7,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Narrow phones can't fit the brand wordmark alongside the language
+        // switcher and the nav CTA, so the wordmark appears from here up.
+        xs: "440px",
+      },
       colors: {
         sea: "#1B3A4B",
         "sea-light": "#2C5064",
