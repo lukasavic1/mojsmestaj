@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Fraunces, Inter } from "next/font/google";
 import "../globals.css";
 import {
@@ -80,6 +81,7 @@ export default function LocaleLayout({
     <html lang={hreflang[locale]}>
       <body className={`${fraunces.variable} ${inter.variable} font-sans`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
