@@ -7,6 +7,14 @@ const COMMISSION_RATE = 0.15;
 const SITE_PRICE = 499;
 const MONTHLY_FEE = 15;
 
+// A month only has so many nights to sell. Without this the sliders happily
+// produce 20 bookings x 14 nights, and a revenue figure nobody would believe.
+const MAX_NIGHTS_PER_MONTH = 31;
+
+function fitsInMonth(value: number) {
+  return Math.max(1, Math.floor(MAX_NIGHTS_PER_MONTH / value));
+}
+
 // Rendered on the server too, so it must not depend on the runtime's locale data.
 function fmt(n: number) {
   return Math.round(n)
@@ -69,7 +77,20 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
   const [bookings, setBookings] = useState(6);
   const [nights, setNights] = useState(3);
 
-  const monthlyRevenue = price * bookings * nights;
+  // Raising one of the two pushes the other down rather than letting the pair
+  // describe a month that does not exist.
+  function changeBookings(v: number) {
+    setBookings(v);
+    setNights((n) => Math.min(n, fitsInMonth(v)));
+  }
+
+  function changeNights(v: number) {
+    setNights(v);
+    setBookings((b) => Math.min(b, fitsInMonth(v)));
+  }
+
+  const nightsSold = bookings * nights;
+  const monthlyRevenue = price * nightsSold;
   const monthlyFee = monthlyRevenue * COMMISSION_RATE;
   const yearlyLost = monthlyFee * 12;
 
@@ -109,10 +130,10 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
                 label={dict.calcBookings}
                 value={bookings}
                 min={1}
-                max={20}
+                max={MAX_NIGHTS_PER_MONTH}
                 step={1}
                 suffix=""
-                onChange={setBookings}
+                onChange={changeBookings}
               />
             </div>
             <div className="border-t border-sea/10">
@@ -120,14 +141,20 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
                 label={dict.calcNights}
                 value={nights}
                 min={1}
-                max={14}
+                max={MAX_NIGHTS_PER_MONTH}
                 step={1}
                 suffix=""
-                onChange={setNights}
+                onChange={changeNights}
               />
             </div>
 
             <div className="mt-auto border-t border-sea/10 pt-5">
+              <div className="mb-2.5 flex items-baseline justify-between">
+                <span className="text-[14.5px] text-ink-soft">{dict.calcNightsTotal}</span>
+                <span className="text-[14.5px] font-semibold text-ink-soft">
+                  {nightsSold}/{MAX_NIGHTS_PER_MONTH}
+                </span>
+              </div>
               <div className="flex items-baseline justify-between">
                 <span className="text-[14.5px] text-ink-soft">{dict.calcRevenue}</span>
                 <span className="font-display text-lg font-semibold text-sea">
