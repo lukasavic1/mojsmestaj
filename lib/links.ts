@@ -5,6 +5,7 @@ const TELEGRAM_HANDLE = "svojsmestaj";
 const CONTACT_PHONE = "+381 67 774 7710";
 const CONTACT_EMAIL = "svojsmestaj@gmail.com";
 const INSTAGRAM_URL = "https://instagram.com/svojsmestaj";
+const EXAMPLE_SITE_URL = "https://primersajta.vercel.app/";
 
 export function getContactLinks(waMessage: string, emailSubject?: string) {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_NUMBER;
@@ -12,6 +13,7 @@ export function getContactLinks(waMessage: string, emailSubject?: string) {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || CONTACT_PHONE;
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || CONTACT_EMAIL;
   const instagram = process.env.NEXT_PUBLIC_INSTAGRAM_URL || INSTAGRAM_URL;
+  const exampleSite = process.env.NEXT_PUBLIC_EXAMPLE_SITE_URL || EXAMPLE_SITE_URL;
 
   return {
     whatsapp: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waMessage)}`,
@@ -23,5 +25,6 @@ export function getContactLinks(waMessage: string, emailSubject?: string) {
       ? `mailto:${email}?subject=${encodeURIComponent(emailSubject)}`
       : `mailto:${email}`,
     instagram,
+    exampleSite,
   };
 }
