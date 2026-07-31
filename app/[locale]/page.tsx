@@ -3,6 +3,7 @@ import { getDictionary } from "../../lib/dictionaries";
 import Nav from "../../components/Nav";
 import Hero from "../../components/Hero";
 import Pain from "../../components/Pain";
+import Calculator from "../../components/Calculator";
 import Steps from "../../components/Steps";
 import Value from "../../components/Value";
 import Pricing from "../../components/Pricing";
@@ -25,6 +26,7 @@ export default async function LocalePage({
       <main>
         <Hero dict={dict} />
         <Pain dict={dict} />
+        <Calculator dict={dict} />
         <Steps dict={dict} />
         <Value dict={dict} />
         <Pricing dict={dict} />
