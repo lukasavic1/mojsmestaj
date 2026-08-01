@@ -115,5 +115,9 @@
   "waMsg": "Zdravo! Zanima me sajt za moj smeštaj.",
   "emailSubject": "Upit za sajt za smeštaj",
   "footerRights": "Sva prava zadržana.",
-  "heroBadge": "Sajt gotov za manje od nedelju dana"
+  "heroBadge": "Sajt gotov za manje od nedelju dana",
+  "cookieTitle": "Kolačići",
+  "cookieText": "Koristimo kolačiće da bismo merili koliko su naši oglasi uspešni. Sajt radi potpuno isto ako odbijete.",
+  "cookieAccept": "Prihvatam",
+  "cookieReject": "Odbijam"
 }

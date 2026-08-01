@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Fraunces, Inter } from "next/font/google";
+import ConsentBanner from "../../components/ConsentBanner";
+import GoogleAds from "../../components/GoogleAds";
 import "../globals.css";
 import {
   locales,
@@ -70,7 +71,7 @@ export async function generateMetadata({
   };
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
@@ -78,26 +79,13 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   const locale: Locale = isLocale(params.locale) ? params.locale : defaultLocale;
+  const dict = await getDictionary(locale);
   return (
     <html lang={hreflang[locale]}>
-      <head>
-        <Script
-          id="google-gtag"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'AW-868270889');`,
-          }}
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-868270889"
-          strategy="afterInteractive"
-        />
-      </head>
       <body className={`${fraunces.variable} ${inter.variable} font-sans`}>
         {children}
+        <ConsentBanner dict={dict} />
+        <GoogleAds />
         <Analytics />
       </body>
     </html>
