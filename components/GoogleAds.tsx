@@ -7,9 +7,9 @@ import { consentDefaultScript } from "../lib/consent";
 // Same pattern as the contact links: the real value is the default, so a
 // missing env var in the dashboard does not silently switch tracking off.
 const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-868270889";
-// No default — until the conversion label from Google Ads is set, the tag still
-// loads but no conversion is reported.
-const CONTACT_LABEL = process.env.NEXT_PUBLIC_GOOGLE_ADS_LABEL_CONTACT;
+// Label of the "Контакт" conversion action, count = one, 30-day window.
+const CONTACT_LABEL =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_LABEL_CONTACT || "1pKSCK3HmdocEKmGg54D";
 
 type Gtag = (...args: unknown[]) => void;
 
