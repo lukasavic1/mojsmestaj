@@ -27,7 +27,7 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
         </div>
 
         <div className="grid gap-7 md:grid-cols-2">
-          {/* Basic */}
+          {/* Essentials */}
           <div className="flex flex-col rounded-xl2 border border-sea/10 bg-paper p-8">
             <div className="text-sm font-bold uppercase tracking-wide text-olive">{dict.basicTier}</div>
             <h3 className="mt-2 font-display text-[26px] font-semibold text-sea">{dict.basicName}</h3>
@@ -52,7 +52,7 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
             </a>
           </div>
 
-          {/* Premium */}
+          {/* Professional */}
           <div className="relative flex flex-col overflow-hidden rounded-xl2 bg-sea p-8 text-paper">
             <span className="absolute right-7 top-7 rounded-full bg-roof px-3.5 py-1.5 text-[11px] font-extrabold tracking-wide text-paper">
               {dict.premiumBadge}
