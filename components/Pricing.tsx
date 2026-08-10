@@ -12,7 +12,7 @@ function Check() {
 export default function Pricing({ dict }: { dict: Dictionary }) {
   const links = getContactLinks(dict.waMsg);
   const basicFeatures = [dict.b1, dict.b2, dict.b3, dict.b4, dict.b5, dict.b6];
-  const premiumFeatures = [dict.p1, dict.p2, dict.p3, dict.p4, dict.p5, dict.p6];
+  const premiumFeatures = [dict.p1, dict.p3, dict.p4, dict.p5, dict.p6];
 
   return (
     <section className="px-6 py-16" id="cene">
