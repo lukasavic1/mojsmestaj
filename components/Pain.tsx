@@ -8,7 +8,7 @@ export default function Pain({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <section className="px-6 py-16" id="problem">
+    <section className="px-6 pb-16 pt-8 md:pt-16" id="problem">
       <div className="mx-auto max-w-[1140px]">
         <div className="mb-11 max-w-[640px]">
           <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-roof before:block before:h-[2px] before:w-[18px] before:bg-roof">

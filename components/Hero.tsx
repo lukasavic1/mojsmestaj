@@ -5,7 +5,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
   const links = getContactLinks(dict.waMsg);
 
   return (
-    <section className="px-6 pb-14 pt-16 md:pt-20">
+    <section className="px-6 pb-8 pt-16 md:pb-14 md:pt-20">
       <div className="mx-auto grid max-w-[1140px] items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
         <div>
           <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-olive before:block before:h-[2px] before:w-[18px] before:bg-olive">
@@ -56,7 +56,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             <span>{dict.heroTrust}</span>
           </div>
         </div>
-        <div className="relative mx-auto aspect-square w-full max-w-[280px] md:max-w-[440px]">
+        <div className="relative mx-auto hidden aspect-square w-full max-w-[280px] md:block md:max-w-[440px]">
           <svg viewBox="0 0 400 400" fill="none" className="h-full w-full">
             <circle cx="300" cy="90" r="46" fill="#E3A17C" />
             <path d="M60 230 L200 130 L340 230" stroke="#1B3A4B" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none" />
