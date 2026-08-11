@@ -8,7 +8,6 @@ export default function Faq({ dict }: { dict: Dictionary }) {
 
   const items = [
     { q: dict.faqQ1, a: dict.faqA1 },
-    { q: dict.faqQ2, a: dict.faqA2 },
     { q: dict.faqQ3, a: dict.faqA3 },
     { q: dict.faqQ4, a: dict.faqA4 },
     { q: dict.faqQ5, a: dict.faqA5 },

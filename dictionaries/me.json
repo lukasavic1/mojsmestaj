@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Vlastiti sajt za vaš smještaj - bez provizije | SvojSmještaj",
-    "description": "Sajt za vaš smještaj gotov za sedmicu dana. Bez procenta koji uzima Booking ili Airbnb. Essentials 499€, Professional 900€ sa sinhronizacijom kalendara."
+    "description": "Sajt za vaš smještaj gotov za sedmicu dana. Bez procenta koji uzima Booking ili Airbnb. Essentials 499€, Professional 699€ sa sinhronizacijom kalendara."
   },
   "brand": "SvojSmještaj",
   "navCta": "Pišite nam",
@@ -88,8 +88,6 @@
   "faqTitle": "Najčešća pitanja",
   "faqQ1": "Koliko brzo mogu imati sajt?",
   "faqA1": "Najčešće manje od sedmicu dana, čim nam pošaljete slike, tekst i kontakt podatke. Trudimo se da sve bude gotovo brzo, ali bez žurbe koja šteti kvalitetu.",
-  "faqQ2": "Da li se plaća unaprijed?",
-  "faqA2": "Da, cijeli iznos se plaća unaprijed - tako možemo odmah krenuti i posvetiti se vašem sajtu od prvog dana.",
   "faqQ3": "Šta ako u nekom trenutku prestanem plaćati mjesečno održavanje?",
   "faqA3": "Bez brige, sajt ostaje vaš. Dobićete sve fajlove i moći ćete ga hostovati sami, gdje god vam odgovara.",
   "faqQ4": "Ko posjeduje domenu sajta?",

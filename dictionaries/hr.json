@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Vlastita web stranica za vaš smještaj - bez provizije | SvojSmještaj",
-    "description": "Stranica za vaš smještaj gotova za tjedan dana. Bez postotka koji uzima Booking ili Airbnb. Essentials 499€, Professional 900€ sa sinkronizacijom kalendara."
+    "description": "Stranica za vaš smještaj gotova za tjedan dana. Bez postotka koji uzima Booking ili Airbnb. Essentials 499€, Professional 699€ sa sinkronizacijom kalendara."
   },
   "brand": "SvojSmještaj",
   "navCta": "Pišite nam",
@@ -88,8 +88,6 @@
   "faqTitle": "Najčešća pitanja",
   "faqQ1": "Koliko brzo mogu imati stranicu?",
   "faqA1": "Najčešće manje od tjedan dana, čim nam pošaljete fotografije, tekst i kontakt podatke. Trudimo se da sve bude gotovo brzo, ali bez žurbe koja šteti kvaliteti.",
-  "faqQ2": "Plaća li se unaprijed?",
-  "faqA2": "Da, cijeli iznos se plaća unaprijed - tako možemo odmah krenuti i posvetiti se vašoj stranici od prvog dana.",
   "faqQ3": "Što ako u nekom trenutku prestanem plaćati mjesečno održavanje?",
   "faqA3": "Bez brige, stranica ostaje vaša. Dobit ćete sve datoteke i moći ćete je hostirati sami, gdje god vam odgovara.",
   "faqQ4": "Tko posjeduje domenu stranice?",

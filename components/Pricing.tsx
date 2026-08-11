@@ -32,6 +32,7 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
             <div className="text-sm font-bold uppercase tracking-wide text-olive">{dict.basicTier}</div>
             <h3 className="mt-2 font-display text-[26px] font-semibold text-sea">{dict.basicName}</h3>
             <div className="mt-4 flex items-baseline gap-2">
+              <span className="font-display text-[26px] font-semibold text-ink-soft/55 line-through decoration-roof/70 decoration-2">599€</span>
               <span className="font-display text-[44px] font-semibold text-sea">499€</span>
               <span className="text-sm text-ink-soft">{dict.oneTime}</span>
             </div>
@@ -60,7 +61,8 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
             <div className="text-sm font-bold uppercase tracking-wide text-sun">{dict.premiumTier}</div>
             <h3 className="mt-2 font-display text-[26px] font-semibold text-paper">{dict.premiumName}</h3>
             <div className="mt-4 flex items-baseline gap-2">
-              <span className="font-display text-[44px] font-semibold">900€</span>
+              <span className="font-display text-[26px] font-semibold text-paper/50 line-through decoration-sun/80 decoration-2">899€</span>
+              <span className="font-display text-[44px] font-semibold">699€</span>
               <span className="text-sm text-paper/65">{dict.oneTime}</span>
             </div>
             <div className="mb-6 text-sm text-paper/70">{dict.premiumSub}</div>
