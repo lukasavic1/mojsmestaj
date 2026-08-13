@@ -38,7 +38,7 @@ export default function Value({ dict }: { dict: Dictionary }) {
         </div>
         <div className="rounded-xl2 bg-sea p-9 text-paper">
           <div className="mb-2.5 flex items-baseline gap-2.5">
-            <span className="font-display text-[40px] font-semibold">15€</span>
+            <span className="font-display text-[40px] font-semibold">12€</span>
             <span className="text-sm text-paper/70">{dict.valueCardPeriod}</span>
           </div>
           <p className="text-[14.5px] leading-relaxed text-paper/80">{dict.valueCardText}</p>

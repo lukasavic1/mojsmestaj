@@ -72,7 +72,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
           >
             499€ / 699€
           </div>
-          <div style={{ fontSize: 26, color: "#4A5A64" }}>{`+ 15€ ${dict.valueCardPeriod}`}</div>
+          <div style={{ fontSize: 26, color: "#4A5A64" }}>{`+ 12€ ${dict.valueCardPeriod}`}</div>
         </div>
       </div>
     ),
