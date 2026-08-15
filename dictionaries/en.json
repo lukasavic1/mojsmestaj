@@ -131,8 +131,6 @@
   "tplDesktop": "Desktop",
   "tplTablet": "Tablet",
   "tplMobile": "Phone",
-  "tplRotateHint": "For the best desktop preview, turn your phone sideways",
-  "tplRotateContinue": "OK, continue",
   "tplSelected": "Selected template",
   "tplSelectHint": "Get in touch and we'll start from this look.",
   "waMsgTemplate": "Hi! I'm interested in a website for my rental. I chose the {template} template.",

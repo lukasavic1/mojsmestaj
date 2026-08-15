@@ -27,14 +27,11 @@ export default function TemplatePreviewModal({
   onClose: () => void;
 }) {
   const [viewport, setViewport] = useState<Viewport>(() => (isPhoneViewport() ? "mobile" : "desktop"));
-  const [rotateOpen, setRotateOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!template) return;
-    const phone = isPhoneViewport();
-    setViewport(phone ? "mobile" : "desktop");
-    setRotateOpen(false);
+    setViewport(isPhoneViewport() ? "mobile" : "desktop");
   }, [template?.id]);
 
   useEffect(() => {
@@ -46,16 +43,10 @@ export default function TemplatePreviewModal({
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
     };
-    const mq = window.matchMedia("(max-width: 767px)");
-    const onMq = () => {
-      if (!mq.matches) setRotateOpen(false);
-    };
-    mq.addEventListener("change", onMq);
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
-      mq.removeEventListener("change", onMq);
     };
   }, [template, onClose]);
 
@@ -68,11 +59,6 @@ export default function TemplatePreviewModal({
     mobile: dict.tplMobile,
   };
   const Demo = template.Demo;
-
-  const chooseViewport = (id: Viewport) => {
-    setViewport(id);
-    setRotateOpen(isPhoneViewport() && id !== "mobile");
-  };
 
   return (
     <div
@@ -97,7 +83,7 @@ export default function TemplatePreviewModal({
             <button
               key={id}
               type="button"
-              onClick={() => chooseViewport(id)}
+              onClick={() => setViewport(id)}
               aria-pressed={viewport === id}
               aria-label={labels[id]}
               title={labels[id]}
@@ -133,24 +119,6 @@ export default function TemplatePreviewModal({
       <PreviewStage viewport={viewport} resetKey={template.id}>
         <Demo dict={dict} />
       </PreviewStage>
-
-      {rotateOpen && (
-        <div className="absolute inset-0 z-[90] flex items-center justify-center bg-[#13232e]/55 p-5 backdrop-blur-md">
-          <div className="w-full max-w-sm rounded-3xl border border-white/20 bg-white/10 p-6 text-center text-paper shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-xl">
-            <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10">
-              <IconSmartphone className="tpl-rotate-phone h-12 w-12" />
-            </div>
-            <p className="text-sm font-semibold leading-relaxed">{dict.tplRotateHint}</p>
-            <button
-              type="button"
-              onClick={() => setRotateOpen(false)}
-              className="mt-5 min-h-12 w-full rounded-full bg-paper text-sm font-bold text-sea"
-            >
-              {dict.tplRotateContinue}
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -131,8 +131,6 @@
   "tplDesktop": "Računar",
   "tplTablet": "Tablet",
   "tplMobile": "Telefon",
-  "tplRotateHint": "Za najbolji prikaz desktop verzije, okrenite telefon horizontalno",
-  "tplRotateContinue": "Uredu, nastavi",
   "tplSelected": "Izabrani šablon",
   "tplSelectHint": "Javite nam se i krenućemo od ovog izgleda.",
   "waMsgTemplate": "Zdravo! Zanima me sajt za moj smeštaj. Izabrao/la sam šablon: {template}.",

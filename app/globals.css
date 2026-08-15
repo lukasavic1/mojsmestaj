@@ -70,25 +70,6 @@ body {
   }
 }
 
-@keyframes tpl-rotate-phone {
-  0%,
-  18% {
-    transform: rotate(0deg);
-  }
-  42%,
-  78% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-.tpl-rotate-phone {
-  transform-origin: center;
-  animation: tpl-rotate-phone 2.4s ease-in-out infinite;
-}
-
 .tpl-modal {
   animation: tpl-fade 0.2s ease;
 }
@@ -142,9 +123,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .tpl-modal {
-    animation: none;
-  }
-  .tpl-rotate-phone {
     animation: none;
   }
   .tpl-img-zoom:hover img {
