@@ -25,7 +25,7 @@ export default function TemplatesSection({ dict }: { dict: Dictionary }) {
           <p className="mt-4 max-w-[520px] text-[15px] leading-relaxed text-ink-soft">{dict.tplLede}</p>
         </div>
 
-        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-6">
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 pl-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0 xl:grid-cols-6">
           {TEMPLATES.map((template, index) => {
             const copy = getTemplateCopy(dict, template.id);
             return (
@@ -35,8 +35,8 @@ export default function TemplatesSection({ dict }: { dict: Dictionary }) {
                 onClick={() => setOpen(template)}
                 aria-label={`${dict.tplPreview}: ${copy.name}`}
                 className={`group flex w-[min(82vw,20.5rem)] shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl2 border border-sea/10 bg-paper text-left shadow-[0_12px_40px_-28px_rgba(27,58,75,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-sea/20 hover:shadow-[0_24px_50px_-24px_rgba(27,58,75,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea/40 md:w-auto md:shrink ${
-                  index < 3 ? "xl:col-span-2" : "xl:col-span-3"
-                }`}
+                  index === TEMPLATES.length - 1 ? "max-md:mr-6" : ""
+                } ${index < 3 ? "xl:col-span-2" : "xl:col-span-3"}`}
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <div className="h-full transition-transform duration-500 group-hover:scale-[1.03]">

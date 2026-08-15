@@ -76,12 +76,12 @@ export default function TemplatePreviewModal({
 
   return (
     <div
-      className="tpl-modal fixed inset-0 z-[80] flex flex-col bg-[#13232e]"
+      className="tpl-modal fixed inset-0 z-[80] flex flex-col bg-[#13232e] pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]"
       role="dialog"
       aria-modal="true"
       aria-labelledby="tpl-preview-title"
     >
-      <header className="flex flex-none flex-wrap items-center gap-2 border-b border-white/10 px-3 py-2.5 sm:gap-3 sm:px-4">
+      <header className="flex flex-none flex-wrap items-center gap-2 border-b border-white/10 px-3 py-2.5 sm:gap-3 sm:px-4 [@media(max-height:500px)]:py-1.5">
         <button
           ref={closeRef}
           type="button"
@@ -171,7 +171,17 @@ function PreviewStage({
   useEffect(() => {
     const el = outerRef.current;
     if (!el) return;
-    const update = () => setSize({ w: el.clientWidth, h: el.clientHeight });
+    const update = () => {
+      const cs = getComputedStyle(el);
+      const pl = parseFloat(cs.paddingLeft) || 0;
+      const pr = parseFloat(cs.paddingRight) || 0;
+      const pt = parseFloat(cs.paddingTop) || 0;
+      const pb = parseFloat(cs.paddingBottom) || 0;
+      setSize({
+        w: Math.max(0, el.clientWidth - pl - pr),
+        h: Math.max(0, el.clientHeight - pt - pb),
+      });
+    };
     update();
     const observer = new ResizeObserver(update);
     observer.observe(el);
@@ -183,17 +193,26 @@ function PreviewStage({
   }, [viewport, resetKey]);
 
   const targetW = viewport === "desktop" ? 1280 : viewport === "tablet" ? 768 : 375;
-  const scale = size.w > 0 ? Math.min(1, size.w / targetW) : 1;
+  let scale = size.w > 0 ? Math.min(1, size.w / targetW) : 1;
+  // Rotated phones are wide enough for 768px at scale 1, but only ~300px tall.
+  // Desktop already shrinks to fit 1280, so the window into the page is taller
+  // and looks complete. Tablet needs the same treatment or the layout is clipped.
+  if (viewport === "tablet" && size.h > 0 && scale > 0) {
+    const minInnerH = 560;
+    if (size.h / scale < minInnerH) {
+      scale = Math.min(scale, size.h / minInnerH);
+    }
+  }
   const innerH = scale > 0 ? size.h / scale : size.h;
 
   return (
     <div
       ref={outerRef}
-      className="flex min-h-0 flex-1 items-stretch justify-center overflow-hidden p-3 sm:p-5"
+      className="flex min-h-0 flex-1 items-stretch justify-center overflow-hidden p-3 sm:p-5 [@media(max-height:500px)]:p-2"
     >
       {size.w > 0 && (
         <div
-          className="overflow-hidden rounded-xl bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-[width] duration-300 ease-out"
+          className="max-w-full overflow-hidden rounded-xl bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-[width] duration-300 ease-out"
           style={{ width: targetW * scale, height: "100%" }}
         >
           <div
