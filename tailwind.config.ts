@@ -1,10 +1,8 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
-  content: [
-    "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-  ],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -34,7 +32,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Follows Računar / Tablet / Telefon in the preview frame, not browser width.
+    plugin(({ addVariant }) => {
+      addVariant("vp-d", ".tpl-vp-desktop &");
+      addVariant("vp-t", ".tpl-vp-tablet &");
+      addVariant("vp-m", ".tpl-vp-mobile &");
+      addVariant("vp-dt", [".tpl-vp-desktop &", ".tpl-vp-tablet &"]);
+    }),
+  ],
 };
 
 export default config;

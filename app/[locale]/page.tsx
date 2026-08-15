@@ -7,6 +7,7 @@ import ExampleSite from "../../components/ExampleSite";
 import Calculator from "../../components/Calculator";
 import Steps from "../../components/Steps";
 import Value from "../../components/Value";
+import TemplatesSection from "../../components/TemplatesSection";
 import Pricing from "../../components/Pricing";
 import Faq from "../../components/Faq";
 import Trust from "../../components/Trust";
@@ -31,6 +32,7 @@ export default async function LocalePage({
         <Calculator dict={dict} />
         <Steps dict={dict} />
         <Value dict={dict} />
+        <TemplatesSection dict={dict} />
         <Pricing dict={dict} />
         <Faq dict={dict} />
         <Trust dict={dict} />
