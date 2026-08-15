@@ -12,9 +12,9 @@ export default function ExampleSite({ dict }: { dict: Dictionary }) {
           <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-olive before:block before:h-[2px] before:w-[18px] before:bg-olive">
             {dict.exampleEyebrow}
           </div>
-          <h3 className="font-display text-[22px] font-semibold leading-tight text-sea sm:text-[28px]">
+          <h2 className="font-display text-[22px] font-semibold leading-tight text-sea sm:text-[28px]">
             {dict.exampleTitle}
-          </h3>
+          </h2>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{dict.exampleLede}</p>
         </div>
 

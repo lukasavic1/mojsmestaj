@@ -21,7 +21,7 @@ const consent = page.getByRole("button", { name: /Prihvatam|Accept/i }).first();
 if (await consent.count()) await consent.click().catch(() => {});
 
 for (const [i, name] of NAMES.entries()) {
-  await page.locator("#sabloni article button").nth(i * 2).click();
+  await page.locator("#sabloni button.group").nth(i).click();
   await page.locator(".tpl-preview-scroll").waitFor();
 
   for (const vp of VIEWPORTS) {
