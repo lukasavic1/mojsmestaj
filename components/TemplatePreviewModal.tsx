@@ -116,7 +116,7 @@ export default function TemplatePreviewModal({
         </button>
       </header>
 
-      <PreviewStage viewport={viewport} resetKey={template.id}>
+      <PreviewStage viewport={viewport} resetKey={template.id} onClose={onClose}>
         <Demo dict={dict} />
       </PreviewStage>
     </div>
@@ -126,10 +126,12 @@ export default function TemplatePreviewModal({
 function PreviewStage({
   viewport,
   resetKey,
+  onClose,
   children,
 }: {
   viewport: Viewport;
   resetKey: string;
+  onClose: () => void;
   children: ReactNode;
 }) {
   const outerRef = useRef<HTMLDivElement>(null);
@@ -176,12 +178,14 @@ function PreviewStage({
   return (
     <div
       ref={outerRef}
-      className="flex min-h-0 flex-1 items-stretch justify-center overflow-hidden p-3 sm:p-5 [@media(max-height:500px)]:p-2"
+      className="flex min-h-0 flex-1 cursor-pointer items-stretch justify-center overflow-hidden p-3 sm:p-5 [@media(max-height:500px)]:p-2"
+      onClick={onClose}
     >
       {size.w > 0 && (
         <div
-          className="max-w-full overflow-hidden rounded-xl bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-[width] duration-300 ease-out"
+          className="max-w-full cursor-auto overflow-hidden rounded-xl bg-white shadow-[0_24px_64px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-[width] duration-300 ease-out"
           style={{ width: targetW * scale, height: "100%" }}
+          onClick={(event) => event.stopPropagation()}
         >
           <div
             className="origin-top-left overflow-hidden"
