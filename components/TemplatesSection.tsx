@@ -35,8 +35,10 @@ export default function TemplatesSection({ dict }: { dict: Dictionary }) {
                 type="button"
                 onClick={() => setOpen(template)}
                 aria-label={`${dict.tplPreview}: ${copy.name}`}
-                className={`group flex w-[min(82vw,20.5rem)] shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl2 border border-sea/10 bg-paper text-left shadow-[0_12px_40px_-28px_rgba(27,58,75,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-sea/20 hover:shadow-[0_24px_50px_-24px_rgba(27,58,75,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea/40 md:w-auto md:shrink ${
-                  last ? "max-md:mr-6 md:col-span-2 md:w-[74%] md:justify-self-center" : ""
+                className={`group flex shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl2 border border-sea/10 bg-paper text-left shadow-[0_12px_40px_-28px_rgba(27,58,75,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-sea/20 hover:shadow-[0_24px_50px_-24px_rgba(27,58,75,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea/40 ${
+                  last
+                    ? "mr-6 w-[min(82vw,20.5rem)] md:col-span-2 md:mr-0 md:w-[calc((100%-1.5rem)/2)] md:justify-self-center"
+                    : "w-[min(82vw,20.5rem)] md:w-auto"
                 }`}
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
