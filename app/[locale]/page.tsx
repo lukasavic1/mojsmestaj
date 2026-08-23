@@ -11,6 +11,7 @@ import TemplatesSection from "../../components/TemplatesSection";
 import Pricing from "../../components/Pricing";
 import Faq from "../../components/Faq";
 import Trust from "../../components/Trust";
+import Testimonials from "../../components/Testimonials";
 import FinalCta from "../../components/FinalCta";
 import Footer from "../../components/Footer";
 
@@ -36,6 +37,7 @@ export default async function LocalePage({
         <Pricing dict={dict} />
         <Faq dict={dict} />
         <Trust dict={dict} />
+        <Testimonials dict={dict} />
         <FinalCta dict={dict} />
       </main>
       <Footer dict={dict} />
