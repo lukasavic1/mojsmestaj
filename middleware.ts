@@ -14,7 +14,8 @@ function detectLocale(request: NextRequest): string {
     if (lang.startsWith("hr")) return "hr";
     if (lang.startsWith("bs")) return "bs";
     if (lang.startsWith("sr")) return "sr";
-    if (lang.startsWith("en")) return "en";
+    // English is intentionally NOT auto-detected: English-browser visitors
+    // land on the Serbian default (they can still switch to EN manually).
     // "me" (Montenegrin) has no distinct browser tag in practice, so it is
     // reached only via the manual switcher / cookie, never auto-detected.
   }
