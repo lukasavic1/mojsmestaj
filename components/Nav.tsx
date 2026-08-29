@@ -6,6 +6,13 @@ import LangSwitch from "./LangSwitch";
 export default function Nav({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const links = getContactLinks(dict.waMsg);
 
+  const navLinks = [
+    { href: "#izracun", label: dict.navCalc },
+    { href: "#cene", label: dict.navPackages },
+    { href: "#utisci", label: dict.navReviews },
+    { href: "#kontakt", label: dict.navContact },
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-sea/10 bg-sand/90 backdrop-blur">
       <div className="mx-auto flex max-w-[1140px] items-center justify-between gap-3 px-6 py-4">
@@ -17,7 +24,20 @@ export default function Nav({ dict, locale }: { dict: Dictionary; locale: Locale
           </svg>
           <span className="hidden truncate xs:inline">{dict.brand}</span>
         </div>
-        <div className="flex flex-none items-center gap-2 sm:gap-4">
+
+        <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="whitespace-nowrap text-sm font-semibold text-ink-soft transition-colors hover:text-sea"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex flex-none items-center gap-2 sm:gap-3">
           <LangSwitch current={locale} />
           <a
             href={links.whatsapp}
