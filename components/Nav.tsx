@@ -6,24 +6,29 @@ import LangSwitch from "./LangSwitch";
 export default function Nav({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const links = getContactLinks(dict.waMsg);
 
+  // Anchors are prefixed with the locale home path so they also work from
+  // subpages (e.g. /sr/privacy) — the browser navigates home, then scrolls.
   const navLinks = [
-    { href: "#izracun", label: dict.navCalc },
-    { href: "#cene", label: dict.navPackages },
-    { href: "#utisci", label: dict.navReviews },
-    { href: "#kontakt", label: dict.navContact },
+    { href: `/${locale}#izracun`, label: dict.navCalc },
+    { href: `/${locale}#cene`, label: dict.navPackages },
+    { href: `/${locale}#utisci`, label: dict.navReviews },
+    { href: `/${locale}#kontakt`, label: dict.navContact },
   ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-sea/10 bg-sand/90 backdrop-blur">
       <div className="mx-auto flex max-w-[1140px] items-center justify-between gap-3 px-6 py-4">
-        <div className="flex min-w-0 items-center gap-2 font-display text-lg font-semibold text-sea sm:text-xl">
+        <a
+          href={`/${locale}`}
+          className="flex min-w-0 items-center gap-2 font-display text-lg font-semibold text-sea sm:text-xl"
+        >
           <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 flex-none sm:h-7 sm:w-7">
             <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M5.5 10v9a1 1 0 001 1h11a1 1 0 001-1v-9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M10 20v-5h4v5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span className="hidden truncate xs:inline">{dict.brand}</span>
-        </div>
+        </a>
 
         <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex">
           {navLinks.map((link) => (

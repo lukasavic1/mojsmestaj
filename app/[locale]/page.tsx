@@ -6,6 +6,7 @@ import Pain from "../../components/Pain";
 import ExampleSite from "../../components/ExampleSite";
 import Calculator from "../../components/Calculator";
 import Steps from "../../components/Steps";
+import Notify from "../../components/Notify";
 import Value from "../../components/Value";
 import TemplatesSection from "../../components/TemplatesSection";
 import Pricing from "../../components/Pricing";
@@ -32,15 +33,16 @@ export default async function LocalePage({
         <ExampleSite dict={dict} />
         <Calculator dict={dict} />
         <Steps dict={dict} />
-        <Value dict={dict} />
+        <Notify dict={dict} />
         <TemplatesSection dict={dict} />
         <Pricing dict={dict} />
+        <Value dict={dict} />
         <Faq dict={dict} />
         <Trust dict={dict} />
         <Testimonials dict={dict} />
         <FinalCta dict={dict} />
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} locale={locale} />
     </>
   );
 }

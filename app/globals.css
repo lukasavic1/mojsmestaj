@@ -129,3 +129,74 @@ body {
     transform: none;
   }
 }
+
+/* Floating brand icons in the "Automatska obaveštenja" section. Each icon
+   drifts up and down and tilts slightly so it looks like it is levitating. */
+@keyframes notify-float-a {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+
+@keyframes notify-float-b {
+  0%,
+  100% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-3deg);
+  }
+}
+
+@keyframes notify-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes notify-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.notify-float-a {
+  animation: notify-float-a 6s ease-in-out infinite;
+}
+
+.notify-float-b {
+  animation: notify-float-b 7s ease-in-out infinite;
+}
+
+.notify-glow {
+  animation: notify-glow 5s ease-in-out infinite;
+}
+
+.notify-ping {
+  animation: notify-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notify-float-a,
+  .notify-float-b,
+  .notify-glow,
+  .notify-ping {
+    animation: none;
+  }
+}

@@ -1,7 +1,8 @@
 import type { Dictionary } from "../lib/dictionaries";
+import type { Locale } from "../lib/i18n-config";
 import { getContactLinks } from "../lib/links";
 
-export default function Footer({ dict }: { dict: Dictionary }) {
+export default function Footer({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const links = getContactLinks(dict.waMsg, dict.emailSubject);
 
   return (
@@ -23,8 +24,14 @@ export default function Footer({ dict }: { dict: Dictionary }) {
             <a href={links.instagram} className="font-semibold text-sea">Instagram</a>
           </div>
         </div>
-        <div className="mt-5 text-xs text-ink-soft/70">
-          © {new Date().getFullYear()} {dict.brand}. {dict.footerRights}
+        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-ink-soft/70">
+          <span>
+            © {new Date().getFullYear()} {dict.brand}. {dict.footerRights}
+          </span>
+          <span aria-hidden className="hidden sm:inline">·</span>
+          <a href={`/${locale}/privacy`} className="font-semibold text-sea hover:underline">
+            {dict.footerPrivacy}
+          </a>
         </div>
       </div>
     </footer>
