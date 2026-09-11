@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
+import { PlatformPill } from "./brand/PlatformMarks";
 
 const COMMISSION_RATE = 0.15;
 const MAX_NIGHTS_PER_MONTH = 31;
@@ -136,7 +137,11 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
               {dict.calcCta}
             </a>
 
-            <p className="mt-5 text-[12.5px] leading-relaxed text-paper/60">{dict.calcNote}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <PlatformPill platform="booking" />
+              <PlatformPill platform="airbnb" />
+            </div>
+            <p className="mt-3 text-[12.5px] leading-relaxed text-paper/60">{dict.calcNote}</p>
           </div>
         </div>
       </div>

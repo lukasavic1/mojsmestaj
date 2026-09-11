@@ -9,6 +9,7 @@ export default function Nav({ dict, locale }: { dict: Dictionary; locale: Locale
   // Anchors are prefixed with the locale home path so they also work from
   // subpages (e.g. /sr/privacy) — the browser navigates home, then scrolls.
   const navLinks = [
+    { href: `/${locale}#resenje`, label: dict.benefitsEyebrow },
     { href: `/${locale}#izracun`, label: dict.navCalc },
     { href: `/${locale}#cene`, label: dict.navPackages },
     { href: `/${locale}#utisci`, label: dict.navReviews },

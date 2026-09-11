@@ -5,9 +5,11 @@ import Hero from "../../components/Hero";
 import Pain from "../../components/Pain";
 import ExampleSite from "../../components/ExampleSite";
 import Calculator from "../../components/Calculator";
+import Benefits from "../../components/Benefits";
 import Steps from "../../components/Steps";
 import Notify from "../../components/Notify";
 import Value from "../../components/Value";
+import Marketing from "../../components/Marketing";
 import TemplatesSection from "../../components/TemplatesSection";
 import Pricing from "../../components/Pricing";
 import Faq from "../../components/Faq";
@@ -30,13 +32,15 @@ export default async function LocalePage({
       <main>
         <Hero dict={dict} />
         <Pain dict={dict} />
-        <ExampleSite dict={dict} />
         <Calculator dict={dict} />
+        <Benefits dict={dict} />
         <Steps dict={dict} />
-        <Notify dict={dict} />
+        <ExampleSite dict={dict} />
         <TemplatesSection dict={dict} />
+        <Notify dict={dict} />
         <Pricing dict={dict} />
         <Value dict={dict} />
+        <Marketing dict={dict} />
         <Faq dict={dict} />
         <Trust dict={dict} />
         <Testimonials dict={dict} />

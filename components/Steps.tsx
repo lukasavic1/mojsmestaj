@@ -1,4 +1,5 @@
 import type { Dictionary } from "../lib/dictionaries";
+import { PlatformPill } from "./brand/PlatformMarks";
 
 export default function Steps({ dict }: { dict: Dictionary }) {
   const steps = [
@@ -29,6 +30,13 @@ export default function Steps({ dict }: { dict: Dictionary }) {
                 <p className="text-[14.5px] leading-relaxed text-paper/75">{step.text}</p>
               </div>
             ))}
+          </div>
+
+          {/* Reassurance: the site works alongside the platforms owners know. */}
+          <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-paper/15 pt-7 text-sm text-paper/80">
+            <PlatformPill platform="booking" />
+            <PlatformPill platform="airbnb" />
+            <span className="max-w-[520px]">{dict.stepsSyncNote}</span>
           </div>
         </div>
       </div>

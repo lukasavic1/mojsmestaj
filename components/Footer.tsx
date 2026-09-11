@@ -33,6 +33,9 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: Loc
             {dict.footerPrivacy}
           </a>
         </div>
+        <p className="mt-4 max-w-[720px] text-[11.5px] leading-relaxed text-ink-soft/60">
+          {dict.footerDisclaimer}
+        </p>
       </div>
     </footer>
   );

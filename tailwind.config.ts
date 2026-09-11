@@ -22,6 +22,13 @@ const config: Config = {
         ink: "#22303A",
         "ink-soft": "#4A5A64",
         sun: "#E3A17C",
+        // Brand colors of the platforms we reference as a visual shorthand.
+        // Booking.com and Airbnb are trademarks of their respective owners;
+        // SvojSmeštaj is not affiliated with either.
+        booking: "#003580",
+        airbnb: "#FF5A5F",
+        facebook: "#1877F2",
+        meta: "#0866FF",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],

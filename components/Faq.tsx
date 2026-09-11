@@ -2,18 +2,22 @@
 
 import { useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
+import { PlatformPill } from "./brand/PlatformMarks";
 
 export default function Faq({ dict }: { dict: Dictionary }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  // The "do I have to leave Booking/Airbnb" question sits near the top, since
+  // it is the objection our positioning most often raises.
   const items = [
-    { q: dict.faqQ1, a: dict.faqA1 },
-    { q: dict.faqQ3, a: dict.faqA3 },
-    { q: dict.faqQ4, a: dict.faqA4 },
-    { q: dict.faqQ5, a: dict.faqA5 },
-    { q: dict.faqQ6, a: dict.faqA6 },
-    { q: dict.faqQ7, a: dict.faqA7 },
-    { q: dict.faqQ8, a: dict.faqA8 },
+    { q: dict.faqQ1, a: dict.faqA1, pills: false },
+    { q: dict.faqQ7, a: dict.faqA7, pills: true },
+    { q: dict.faqQ3, a: dict.faqA3, pills: false },
+    { q: dict.faqQ4, a: dict.faqA4, pills: false },
+    { q: dict.faqQ5, a: dict.faqA5, pills: false },
+    { q: dict.faqQ6, a: dict.faqA6, pills: false },
+    { q: dict.faqQ9, a: dict.faqA9, pills: false },
+    { q: dict.faqQ8, a: dict.faqA8, pills: false },
   ];
 
   return (
@@ -49,11 +53,18 @@ export default function Faq({ dict }: { dict: Dictionary }) {
                 </button>
                 <div
                   className="faq-answer"
-                  style={{ maxHeight: open ? "260px" : "0" }}
+                  style={{ maxHeight: open ? "320px" : "0" }}
                 >
-                  <p className="max-w-[640px] px-0 pb-5 text-[14.5px] leading-relaxed text-ink-soft">
+                  <p className="max-w-[640px] px-0 text-[14.5px] leading-relaxed text-ink-soft">
                     {item.a}
                   </p>
+                  {item.pills && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <PlatformPill platform="booking" />
+                      <PlatformPill platform="airbnb" />
+                    </div>
+                  )}
+                  <div className="pb-5" />
                 </div>
               </div>
             );
