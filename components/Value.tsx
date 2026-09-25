@@ -10,7 +10,7 @@ export default function Value({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="px-6 py-16" id="odrzavanje">
-      <div className="mx-auto grid max-w-[1140px] items-center gap-11 md:grid-cols-2">
+      <div className="mx-auto max-w-[1140px]">
         <div>
           <div className="mb-7 max-w-[560px]">
             <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-roof before:block before:h-[2px] before:w-[18px] before:bg-roof">
@@ -35,14 +35,6 @@ export default function Value({ dict }: { dict: Dictionary }) {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="rounded-xl2 bg-sea p-9 text-paper">
-          <div className="mb-2.5 flex items-baseline gap-2.5">
-            <span className="font-display text-[40px] font-semibold">12€</span>
-            <span className="text-sm text-paper/70">{dict.valueCardPeriod}</span>
-          </div>
-          <p className="text-[14.5px] leading-relaxed text-paper/80">{dict.valueCardText}</p>
-          <div className="mt-5 text-sm font-bold text-sun">{dict.valueCardQuip}</div>
         </div>
       </div>
     </section>

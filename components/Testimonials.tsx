@@ -1,4 +1,5 @@
 import type { Dictionary } from "../lib/dictionaries";
+import StoryGallery from "./StoryGallery";
 
 export default function Testimonials({ dict }: { dict: Dictionary }) {
   const items = [
@@ -6,6 +7,8 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
     { quote: dict.t2Quote, author: dict.t2Author },
     { quote: dict.t3Quote, author: dict.t3Author },
   ];
+  // Instagram story screenshots from public/utisci — add new ones here.
+  const stories = ["/utisci/story-1.jpg", "/utisci/story-2.jpg", "/utisci/story-3.jpg"];
 
   return (
     <section className="px-6 py-16" id="utisci">
@@ -44,6 +47,18 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
             </figure>
           ))}
         </div>
+        <h3 className="mb-6 mt-14 text-center text-base font-semibold text-sea">
+          {dict.testimonialsStoriesTitle}
+        </h3>
+        <StoryGallery
+          images={stories}
+          labels={{
+            alt: dict.testimonialsStoryAlt,
+            close: dict.tplClose,
+            prev: dict.galleryPrev,
+            next: dict.galleryNext,
+          }}
+        />
       </div>
     </section>
   );
