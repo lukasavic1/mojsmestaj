@@ -2,9 +2,9 @@ import type { Dictionary } from "../lib/dictionaries";
 import { PlatformPill } from "./brand/PlatformMarks";
 
 export default function Steps({ dict }: { dict: Dictionary }) {
-  const steps = [
+  const steps: { title: string; text: string; note?: string }[] = [
     { title: dict.step1Title, text: dict.step1Text },
-    { title: dict.step2Title, text: dict.step2Text },
+    { title: dict.step2Title, text: dict.step2Text, note: dict.step2Guarantee },
     { title: dict.step3Title, text: dict.step3Text },
   ];
 
@@ -28,6 +28,15 @@ export default function Steps({ dict }: { dict: Dictionary }) {
                 </div>
                 <h3 className="mb-2 text-[19px] font-semibold text-paper">{step.title}</h3>
                 <p className="text-[14.5px] leading-relaxed text-paper/75">{step.text}</p>
+                {step.note && (
+                  <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-sun/40 bg-sun/10 px-4 py-3 text-[13.5px] font-semibold leading-snug text-sun">
+                    <svg viewBox="0 0 24 24" fill="none" className="mt-px h-4 w-4 flex-none">
+                      <path d="M12 3l7 3.5v5c0 4.5-3 8.5-7 9.5-4-1-7-5-7-9.5v-5L12 3z" stroke="currentColor" strokeWidth="1.6" />
+                      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>{step.note}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
