@@ -23,12 +23,6 @@ function GmailIcon() {
 }
 
 export default function Notify({ dict }: { dict: Dictionary }) {
-  const items = [
-    { title: dict.notify1Title, text: dict.notify1Text },
-    { title: dict.notify2Title, text: dict.notify2Text },
-    { title: dict.notify3Title, text: dict.notify3Text },
-  ];
-
   return (
     <section className="px-6 py-16" id="obavestenja">
       <div className="mx-auto grid max-w-[1140px] items-center gap-11 md:grid-cols-2">
@@ -40,24 +34,9 @@ export default function Notify({ dict }: { dict: Dictionary }) {
           <h2 className="mb-4 max-w-[520px] font-display text-[26px] font-semibold leading-tight text-sea sm:text-[32px] lg:text-[38px]">
             {dict.notifyTitle}
           </h2>
-          <p className="mb-7 max-w-[500px] text-[15px] leading-relaxed text-ink-soft">
+          <p className="max-w-[500px] text-[15px] leading-relaxed text-ink-soft">
             {dict.notifyText}
           </p>
-          <ul>
-            {items.map((item, i) => (
-              <li key={i} className={`flex gap-3.5 py-4 ${i !== 0 ? "border-t border-sea/10" : ""}`}>
-                <div className="flex h-9 w-9 flex-none items-center justify-center rounded-[10px] bg-sand-deep">
-                  <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px] text-roof">
-                    <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="mb-1 text-base font-semibold text-sea">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-ink-soft">{item.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Animated visual */}
