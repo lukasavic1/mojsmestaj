@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { Fraunces, Inter } from "next/font/google";
 import GoogleAds from "../components/GoogleAds";
+import MetaPixel from "../components/MetaPixel";
 import { defaultLocale, hreflang } from "../lib/i18n-config";
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${fraunces.variable} ${inter.variable} font-sans`}>
         {children}
         <GoogleAds />
+        <MetaPixel />
         <Analytics />
       </body>
     </html>
