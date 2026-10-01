@@ -18,7 +18,7 @@ export type PrivacyContent = {
 const sr: PrivacyContent = {
   title: "Politika privatnosti",
   updatedLabel: "Poslednje ažuriranje",
-  updatedDate: "7. septembar 2026.",
+  updatedDate: "1. oktobar 2026.",
   intro:
     "Ova Politika privatnosti objašnjava kako {brand} („mi”, „nas”, „naše”) prikuplja, koristi i štiti lične podatke posetilaca našeg sajta i osoba koje nas kontaktiraju putem WhatsApp-a, e-pošte, telefona i drugih kanala. Podatke obrađujemo u skladu sa Opštom uredbom o zaštiti podataka (GDPR) i Zakonom o zaštiti podataka o ličnosti Republike Srbije.",
   controllerHeading: "Rukovalac podacima",
@@ -73,6 +73,9 @@ const sr: PrivacyContent = {
         {
           p: "Naš sajt koristi kolačiće neophodne za osnovno funkcionisanje i, uz vašu saglasnost, kolačiće za merenje uspešnosti oglasa i analitiku (na primer Google Ads i Google Analytics). Saglasnost možete dati ili odbiti putem banera za kolačiće, a sajt radi potpuno isto i ako ih odbijete.",
         },
+        {
+          p: "Uz vašu saglasnost koristimo i Meta Pixel, alat kompanije Meta Platforms Ireland Ltd. On beleži posete stranicama i klikove na dugmad za kontakt (WhatsApp, Telegram, telefon, e-pošta), kako bismo merili uspešnost naših oglasa na Facebook-u i Instagram-u. Meta pri tome može koristiti kolačiće i tehničke podatke o vašem uređaju i pregledaču, u skladu sa svojom politikom privatnosti. Ako odbijete kolačiće, Meta Pixel ne šalje nikakve podatke.",
+        },
       ],
     },
     {
@@ -81,7 +84,7 @@ const sr: PrivacyContent = {
         { p: "Vaše podatke ne prodajemo trećim licima. Podatke možemo deliti sa pouzdanim pružaocima usluga (obrađivačima) koji nam pomažu u radu:" },
         {
           list: [
-            "Meta Platforms (WhatsApp) — za razmenu poruka sa vama.",
+            "Meta Platforms (WhatsApp, Facebook i Instagram) — za razmenu poruka sa vama i, uz vašu saglasnost, merenje uspešnosti oglasa (Meta Pixel).",
             "Google — za analitiku i oglašavanje.",
             "Pružaoci hostinga i infrastrukture — za rad i bezbednost sajta.",
           ],
@@ -148,7 +151,7 @@ const sr: PrivacyContent = {
 const en: PrivacyContent = {
   title: "Privacy Policy",
   updatedLabel: "Last updated",
-  updatedDate: "September 7, 2026",
+  updatedDate: "October 1, 2026",
   intro:
     "This Privacy Policy explains how {brand} (“we”, “us”, “our”) collects, uses and protects the personal data of visitors to our website and of people who contact us via WhatsApp, email, phone and other channels. We process personal data in accordance with the General Data Protection Regulation (GDPR) and applicable data protection law.",
   controllerHeading: "Data controller",
@@ -202,6 +205,9 @@ const en: PrivacyContent = {
         {
           p: "Our website uses cookies necessary for basic functionality and, with your consent, cookies for measuring ad performance and analytics (for example Google Ads and Google Analytics). You can give or decline consent via the cookie banner, and the site works exactly the same if you decline.",
         },
+        {
+          p: "With your consent we also use the Meta Pixel, a tool provided by Meta Platforms Ireland Ltd. It records page visits and clicks on contact buttons (WhatsApp, Telegram, phone, email) so we can measure the performance of our ads on Facebook and Instagram. Meta may use cookies and technical data about your device and browser for this, in accordance with its own privacy policy. If you decline cookies, the Meta Pixel sends no data.",
+        },
       ],
     },
     {
@@ -210,7 +216,7 @@ const en: PrivacyContent = {
         { p: "We do not sell your data to third parties. We may share data with trusted service providers (processors) who help us operate:" },
         {
           list: [
-            "Meta Platforms (WhatsApp) — to exchange messages with you.",
+            "Meta Platforms (WhatsApp, Facebook and Instagram) — to exchange messages with you and, with your consent, to measure ad performance (Meta Pixel).",
             "Google — for analytics and advertising.",
             "Hosting and infrastructure providers — to run and secure the website.",
           ],
