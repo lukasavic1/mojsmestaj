@@ -131,3 +131,36 @@ body {
     transform: none;
   }
 }
+
+/* The guarantee seal turns slowly, and the price card's WhatsApp button
+   pulses, to draw the eye without moving the layout. */
+@keyframes guarantee-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.guarantee-spin {
+  animation: guarantee-spin 24s linear infinite;
+}
+
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 16px rgba(21, 128, 61, 0);
+  }
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guarantee-spin,
+  .cta-pulse {
+    animation: none;
+  }
+}

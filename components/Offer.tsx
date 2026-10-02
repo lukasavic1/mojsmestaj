@@ -23,10 +23,11 @@ const icons = {
       <path d="M14.5 9.6a2.8 2.8 0 100 4.8M9.5 11h4M9.5 13h4" {...stroke} />
     </>
   ),
+  // Award rosette: a seal with ribbons, the usual "guaranteed" mark.
   guarantee: (
     <>
-      <path d="M12 3l7 3.5v5c0 4.5-3 8.5-7 9.5-4-1-7-5-7-9.5v-5L12 3z" {...stroke} />
-      <path d="M9 12l2 2 4-4" {...stroke} />
+      <circle cx="12" cy="9" r="6" {...stroke} />
+      <path d="M9.5 9l1.7 1.7L14.5 7.5M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7" {...stroke} />
     </>
   ),
 };
@@ -73,16 +74,6 @@ export default function Offer({ dict }: { dict: Dictionary }) {
       statClass: "text-white",
     },
     {
-      icon: icons.money,
-      title: dict.offerAdsTitle,
-      stat: dict.offerAdsStat,
-      statLabel: dict.offerAdsStatLabel,
-      items: [dict.offerAds1, dict.offerAds2],
-      bg: "bg-[linear-gradient(150deg,#15803D_0%,#14532D_100%)]",
-      statClass: "text-gold",
-      bonus: true,
-    },
-    {
       icon: icons.guarantee,
       title: dict.offerGuaranteeTitle,
       stat: dict.offerGuaranteeStat,
@@ -91,6 +82,16 @@ export default function Offer({ dict }: { dict: Dictionary }) {
       bg: "bg-roof",
       statClass: "text-white",
       link: { href: "#garancija", label: dict.guaranteeTermsTitle },
+    },
+    {
+      icon: icons.money,
+      title: dict.offerAdsTitle,
+      stat: dict.offerAdsStat,
+      statLabel: dict.offerAdsStatLabel,
+      items: [dict.offerAds1, dict.offerAds2],
+      bg: "bg-[linear-gradient(150deg,#15803D_0%,#14532D_100%)]",
+      statClass: "text-gold",
+      bonus: true,
     },
   ];
 
