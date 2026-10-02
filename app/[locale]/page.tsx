@@ -8,6 +8,7 @@ import Calculator from "../../components/Calculator";
 import Solution from "../../components/Solution";
 import Offer from "../../components/Offer";
 import Guarantee from "../../components/Guarantee";
+import TemplatesSection from "../../components/TemplatesSection";
 import Pricing from "../../components/Pricing";
 import Faq from "../../components/Faq";
 import Testimonials from "../../components/Testimonials";
@@ -34,6 +35,7 @@ export default async function LocalePage({
         <Solution dict={dict} />
         <Offer dict={dict} />
         <ExampleSite dict={dict} />
+        <TemplatesSection dict={dict} />
         <Testimonials dict={dict} />
         <Guarantee dict={dict} />
         <Pricing dict={dict} />

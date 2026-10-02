@@ -8,53 +8,50 @@ import { IconArrow } from "./templates-demo/icons";
 import TemplateThumbnail from "./templates-demo/TemplateThumbnail";
 import { getTemplateCopy, type TemplateItem } from "./templates-demo/types";
 
+// The city-apartment template stays in the catalog but off the page: the
+// offer is for villas and holiday homes, never buildings.
+const SHOWN = TEMPLATES.filter((t) => t.id !== "urban");
+
 export default function TemplatesSection({ dict }: { dict: Dictionary }) {
   const [open, setOpen] = useState<TemplateItem | null>(null);
   const close = useCallback(() => setOpen(null), []);
 
   return (
-    <section className="px-6 py-16" id="sabloni">
+    <section className="px-6 pb-16" id="sabloni">
       <div className="mx-auto max-w-[1140px]">
-        <div className="mb-11 max-w-[640px]">
-          <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-roof before:block before:h-[2px] before:w-[18px] before:bg-roof">
-            {dict.tplEyebrow}
-          </div>
-          <h2 className="font-display text-[26px] font-semibold leading-tight text-sea sm:text-[32px] lg:text-[38px]">
+        <div className="mb-6 max-w-[640px]">
+          <h3 className="font-display text-[20px] font-semibold leading-tight text-sea sm:text-[22px]">
             {dict.tplTitle}
-          </h2>
-          <p className="mt-4 max-w-[520px] text-[15px] leading-relaxed text-ink-soft">{dict.tplLede}</p>
+          </h3>
+          <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">{dict.tplLede}</p>
         </div>
 
-        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 pl-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0">
-          {TEMPLATES.map((template, index) => {
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+          {SHOWN.map((template) => {
             const copy = getTemplateCopy(dict, template.id);
-            const last = index === TEMPLATES.length - 1;
             return (
               <button
                 key={template.id}
                 type="button"
                 onClick={() => setOpen(template)}
                 aria-label={`${dict.tplPreview}: ${copy.name}`}
-                className={`group flex shrink-0 cursor-pointer snap-start flex-col overflow-hidden rounded-xl2 border border-sea/10 bg-paper text-left shadow-[0_12px_40px_-28px_rgba(27,58,75,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-sea/20 hover:shadow-[0_24px_50px_-24px_rgba(27,58,75,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea/40 ${
-                  last
-                    ? "mr-6 w-[min(82vw,20.5rem)] md:col-span-2 md:mr-0 md:w-[calc((100%-1.5rem)/2)] md:justify-self-center"
-                    : "w-[min(82vw,20.5rem)] md:w-auto"
-                }`}
+                className="group flex w-[min(70vw,16rem)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-sea/10 bg-paper text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-sea/20 hover:shadow-[0_18px_40px_-24px_rgba(27,58,75,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea/40 sm:w-auto"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <div className="h-full transition-transform duration-500 group-hover:scale-[1.03]">
                     <TemplateThumbnail id={template.id} />
                   </div>
-                  <span className="absolute bottom-3 left-3 rounded-full bg-paper/95 px-2.5 py-1 text-[10px] font-extrabold tracking-wide text-sea shadow-sm">
-                    {copy.tag}
-                  </span>
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-[20px] font-semibold text-sea">{copy.name}</h3>
-                  <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-soft">{copy.tagline}</p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-sea/55 transition-colors group-hover:text-sea">
+                <div className="flex flex-1 flex-col p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-display text-[15.5px] font-semibold leading-snug text-sea">{copy.name}</span>
+                    <span className="flex-none rounded-full bg-sand-deep/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-sea">
+                      {copy.tag}
+                    </span>
+                  </div>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-3 text-[12.5px] font-semibold text-sea/55 transition-colors group-hover:text-sea">
                     {dict.tplPreview}
-                    <IconArrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    <IconArrow className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </span>
                 </div>
               </button>
