@@ -30,7 +30,7 @@ const icons = {
 
 export default function Solution({ dict }: { dict: Dictionary }) {
   const pillars = [
-    { icon: icons.site, title: dict.solution1Title, text: dict.solution1Text },
+    { icon: icons.site, title: dict.solution1Title, text: dict.solution1Text, langs: true },
     { icon: icons.instagram, title: dict.solution2Title, text: dict.solution2Text },
     { icon: icons.guests, title: dict.solution3Title, text: dict.solution3Text },
   ];
@@ -59,6 +59,18 @@ export default function Solution({ dict }: { dict: Dictionary }) {
                 </div>
                 <h3 className="mb-2 text-[19px] font-semibold text-paper">{p.title}</h3>
                 <p className="text-[14.5px] leading-relaxed text-paper/75">{p.text}</p>
+                {p.langs && (
+                  // Language names in their own language, so guests and owners
+                  // recognise them at a glance in every locale.
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {["English", "Deutsch", "Русский"].map((lang) => (
+                      <span key={lang} className="rounded-full bg-paper/10 px-3 py-1 text-[12.5px] font-semibold text-paper ring-1 ring-paper/20">
+                        {lang}
+                      </span>
+                    ))}
+                    <span className="rounded-full px-1 py-1 text-[12.5px] font-semibold text-sun">{dict.langMore}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

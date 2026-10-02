@@ -14,6 +14,7 @@ export default function Faq({ dict }: { dict: Dictionary }) {
     { q: dict.faqQ1, a: dict.faqA1, pills: false },
     { q: dict.faqQ9, a: dict.faqA9, pills: false },
     { q: dict.faqQ12, a: dict.faqA12, pills: false },
+    { q: dict.faqQ13, a: dict.faqA13, pills: false },
     { q: dict.faqQ2, a: dict.faqA2, pills: false },
     { q: dict.faqQ3, a: dict.faqA3, pills: false },
     { q: dict.faqQ4, a: dict.faqA4, pills: false },
