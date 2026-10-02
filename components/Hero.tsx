@@ -1,13 +1,11 @@
 import type { Dictionary } from "../lib/dictionaries";
-import { getContactLinks } from "../lib/links";
 import { PlatformPill } from "./brand/PlatformMarks";
 import { unsplash } from "./templates-demo/photos";
+import { WhatsAppButton } from "./WhatsAppCta";
 
 const HERO_PHOTO = unsplash("photo-1613977257365-aaae5a9817ff", 1100);
 
 export default function Hero({ dict }: { dict: Dictionary }) {
-  const links = getContactLinks(dict.waMsg);
-
   return (
     <section className="px-6 pb-8 pt-14 md:pb-16 md:pt-20">
       <div className="mx-auto grid max-w-[1140px] items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-14">
@@ -45,12 +43,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             >
               {dict.heroBtnPrimary}
             </a>
-            <a
-              href={links.whatsapp}
-              className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-sea px-6 py-4 text-[15px] font-bold text-sea transition-colors hover:bg-sea hover:text-paper"
-            >
-              {dict.heroBtnGhost}
-            </a>
+            <WhatsAppButton dict={dict} />
           </div>
         </div>
 

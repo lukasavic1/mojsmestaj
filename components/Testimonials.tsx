@@ -1,5 +1,6 @@
 import type { Dictionary } from "../lib/dictionaries";
 import StoryGallery from "./StoryGallery";
+import WhatsAppCta from "./WhatsAppCta";
 
 export default function Testimonials({ dict }: { dict: Dictionary }) {
   const items = [
@@ -59,6 +60,7 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
             next: dict.galleryNext,
           }}
         />
+        <WhatsAppCta dict={dict} align="center" className="mt-12" />
       </div>
     </section>
   );

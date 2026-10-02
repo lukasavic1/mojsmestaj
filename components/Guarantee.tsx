@@ -1,4 +1,5 @@
 import type { Dictionary } from "../lib/dictionaries";
+import WhatsAppCta from "./WhatsAppCta";
 
 export default function Guarantee({ dict }: { dict: Dictionary }) {
   const terms = [dict.guaranteeTerm1, dict.guaranteeTerm2, dict.guaranteeTerm3, dict.guaranteeTerm4];
@@ -24,6 +25,7 @@ export default function Guarantee({ dict }: { dict: Dictionary }) {
               {dict.guaranteeTitle}
             </h2>
             <p className="mt-4 text-[16px] leading-relaxed text-ink">{dict.guaranteeText}</p>
+            <WhatsAppCta dict={dict} className="mt-7" />
           </div>
 
           <div className="rounded-2xl bg-paper p-6 sm:p-7">

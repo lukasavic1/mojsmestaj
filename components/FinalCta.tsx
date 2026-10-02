@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
 import { getContactLinks } from "../lib/links";
+import { WhatsAppIcon } from "./WhatsAppCta";
 import {
   readSelectedTemplateId,
   TEMPLATE_SELECTED_EVENT,
@@ -56,8 +57,9 @@ export default function FinalCta({ dict }: { dict: Dictionary }) {
           <div className="mt-7 flex flex-wrap justify-center gap-3.5">
             <a
               href={links.whatsapp}
-              className="inline-flex items-center gap-2 rounded-full bg-sea px-6 py-4 text-[15px] font-bold text-paper transition-colors hover:bg-sea-light"
+              className="inline-flex items-center gap-2.5 rounded-full bg-money px-6 py-4 text-[15px] font-bold text-white shadow-[0_10px_24px_-10px_rgba(20,83,45,0.8)] transition-colors hover:bg-money-dark"
             >
+              <WhatsAppIcon />
               {dict.finalBtnWA}
             </a>
             <a

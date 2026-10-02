@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
 import { PlatformPill } from "./brand/PlatformMarks";
+import { WhatsAppButton } from "./WhatsAppCta";
 
 const COMMISSION_RATE = 0.15;
 const MAX_NIGHTS_PER_MONTH = 31;
@@ -130,12 +131,9 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
               {fmt(monthlyFee)}€ × 12
             </div>
 
-            <a
-              href="#cena"
-              className="mt-auto block rounded-full bg-roof px-6 py-4 text-center text-[15px] font-bold text-paper transition-colors hover:bg-roof-dark"
-            >
-              {dict.calcCta}
-            </a>
+            <div className="mt-auto pt-7">
+              <WhatsAppButton dict={dict} className="w-full" />
+            </div>
 
             <div className="mt-5 flex flex-wrap gap-2">
               <PlatformPill platform="booking" />

@@ -1,5 +1,5 @@
 import type { Dictionary } from "../lib/dictionaries";
-import { getContactLinks } from "../lib/links";
+import { WhatsAppButton } from "./WhatsAppCta";
 
 function Check() {
   return (
@@ -10,8 +10,13 @@ function Check() {
 }
 
 export default function Pricing({ dict }: { dict: Dictionary }) {
-  const links = getContactLinks(dict.waMsg);
-  const items = [dict.priceItem1, dict.priceItem2, dict.priceItem3, dict.priceItem4];
+  // The ads money is a bonus on top of the package, so it is flagged as one.
+  const items = [
+    { text: dict.priceItem1 },
+    { text: dict.priceItem2 },
+    { text: dict.priceItem3, bonus: true },
+    { text: dict.priceItem4 },
+  ];
 
   return (
     <section className="px-6 py-16" id="cena">
@@ -41,17 +46,19 @@ export default function Pricing({ dict }: { dict: Dictionary }) {
             <ul className="mb-7">
               {items.map((f, i) => (
                 <li key={i} className={`flex gap-2.5 py-2.5 text-[14.5px] leading-relaxed ${i !== 0 ? "border-t border-paper/15" : ""}`}>
-                  <span className="text-sun"><Check /></span>
-                  <span>{f}</span>
+                  <span className={f.bonus ? "text-gold" : "text-sun"}><Check /></span>
+                  <span>
+                    {f.bonus && (
+                      <span className="mr-2 inline-block rounded-full bg-money px-2 py-0.5 align-[1px] text-[10.5px] font-extrabold uppercase tracking-wider text-white">
+                        {dict.offerBonus}
+                      </span>
+                    )}
+                    {f.text}
+                  </span>
                 </li>
               ))}
             </ul>
-            <a
-              href={links.whatsapp}
-              className="block w-full rounded-full bg-roof px-6 py-4 text-center text-[15px] font-bold text-paper transition-colors hover:bg-roof-dark"
-            >
-              {dict.priceCta}
-            </a>
+            <WhatsAppButton dict={dict} className="w-full" />
           </div>
 
           <div className="mt-6 rounded-2xl border border-sea/10 bg-paper p-6">

@@ -1,4 +1,5 @@
 import type { Dictionary } from "../lib/dictionaries";
+import WhatsAppCta from "./WhatsAppCta";
 
 const icons = {
   site: (
@@ -77,6 +78,8 @@ export default function Solution({ dict }: { dict: Dictionary }) {
               ))}
             </ol>
           </div>
+
+          <WhatsAppCta dict={dict} tone="dark" className="mt-10" />
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
 import { PlatformPill } from "./brand/PlatformMarks";
+import WhatsAppCta from "./WhatsAppCta";
 
 export default function Faq({ dict }: { dict: Dictionary }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -73,6 +74,7 @@ export default function Faq({ dict }: { dict: Dictionary }) {
             );
           })}
         </div>
+        <WhatsAppCta dict={dict} note={dict.faqCtaNote} align="center" className="mt-10" />
       </div>
     </section>
   );

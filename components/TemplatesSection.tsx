@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import type { Dictionary } from "../lib/dictionaries";
 import TemplatePreviewModal from "./TemplatePreviewModal";
+import WhatsAppCta from "./WhatsAppCta";
 import { TEMPLATES } from "./templates-demo/catalog";
 import { IconArrow } from "./templates-demo/icons";
 import TemplateThumbnail from "./templates-demo/TemplateThumbnail";
@@ -58,6 +59,8 @@ export default function TemplatesSection({ dict }: { dict: Dictionary }) {
             );
           })}
         </div>
+
+        <WhatsAppCta dict={dict} className="mt-9" />
       </div>
 
       <TemplatePreviewModal dict={dict} template={open} onClose={close} />

@@ -22,6 +22,11 @@ const config: Config = {
         ink: "#22303A",
         "ink-soft": "#4A5A64",
         sun: "#E3A17C",
+        // Money green for the ads bonus and the WhatsApp buttons; dark enough
+        // for white button text to pass contrast.
+        money: "#15803D",
+        "money-dark": "#14532D",
+        gold: "#F5C542",
         // Brand colors of the platforms we reference as a visual shorthand.
         // Booking.com and Airbnb are trademarks of their respective owners;
         // SvojSmeštaj is not affiliated with either.
