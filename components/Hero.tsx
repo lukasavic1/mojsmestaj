@@ -45,6 +45,16 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             </a>
             <WhatsAppButton dict={dict} />
           </div>
+
+          {/* Done-for-you promise: the owner only sends photos and details. */}
+          <p className="mt-5 flex items-center gap-2.5 text-[14.5px] font-semibold text-sea">
+            <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-olive/15 text-olive">
+              <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
+                <path d="M5 12l4 4 10-10" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            {dict.heroDoneForYou}
+          </p>
         </div>
 
         <div className="relative mx-auto w-full max-w-[460px]">

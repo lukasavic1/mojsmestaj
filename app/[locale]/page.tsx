@@ -6,6 +6,7 @@ import Pain from "../../components/Pain";
 import ExampleSite from "../../components/ExampleSite";
 import Calculator from "../../components/Calculator";
 import Solution from "../../components/Solution";
+import DoneForYou from "../../components/DoneForYou";
 import Offer from "../../components/Offer";
 import Guarantee from "../../components/Guarantee";
 import TemplatesSection from "../../components/TemplatesSection";
@@ -27,12 +28,13 @@ export default async function LocalePage({
     <>
       <Nav dict={dict} locale={locale} />
       <main>
-        {/* Order follows the sales argument: problem, solution, what you get,
-            proof, guarantee, price, objections, contact. */}
+        {/* Order follows the sales argument: problem, solution, who does what,
+            what you get, proof, guarantee, price, objections, contact. */}
         <Hero dict={dict} />
         <Pain dict={dict} />
         <Calculator dict={dict} />
         <Solution dict={dict} />
+        <DoneForYou dict={dict} />
         <Offer dict={dict} />
         <ExampleSite dict={dict} />
         <TemplatesSection dict={dict} />

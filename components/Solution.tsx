@@ -1,5 +1,4 @@
 import type { Dictionary } from "../lib/dictionaries";
-import WhatsAppCta from "./WhatsAppCta";
 
 const icons = {
   site: (
@@ -35,7 +34,6 @@ export default function Solution({ dict }: { dict: Dictionary }) {
     { icon: icons.instagram, title: dict.solution2Title, text: dict.solution2Text },
     { icon: icons.guests, title: dict.solution3Title, text: dict.solution3Text },
   ];
-  const process = [dict.process1, dict.process2, dict.process3, dict.process4];
 
   return (
     <section className="px-6 py-8" id="resenje">
@@ -64,22 +62,6 @@ export default function Solution({ dict }: { dict: Dictionary }) {
               </div>
             ))}
           </div>
-
-          <div className="mt-11 border-t border-paper/15 pt-8">
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-sun">
-              {dict.processTitle}
-            </h3>
-            <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {process.map((step, i) => (
-                <li key={i} className="flex gap-3">
-                  <span className="font-display text-sm font-semibold text-sun">0{i + 1}</span>
-                  <span className="text-[14.5px] leading-snug text-paper/85">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          <WhatsAppCta dict={dict} tone="dark" className="mt-10" />
         </div>
       </div>
     </section>
