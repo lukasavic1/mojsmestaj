@@ -43,15 +43,14 @@ export default async function Image({ params }: { params: { locale: string } }) 
               flexWrap: "wrap",
               columnGap: 18,
               rowGap: 4,
-              fontSize: 68,
+              fontSize: 60,
               fontWeight: 700,
               color: "#1B3A4B",
               lineHeight: 1.1,
             }}
           >
-            <span>{dict.heroTitleA}</span>
+            <span>{dict.heroTitle}</span>
             <span style={{ color: "#B5552A" }}>{dict.heroTitleAccent}</span>
-            <span>{dict.heroTitleB}</span>
           </div>
           <div style={{ marginTop: 28, fontSize: 30, color: "#4A5A64", maxWidth: 900 }}>
             {dict.heroBadge}
@@ -70,9 +69,9 @@ export default async function Image({ params }: { params: { locale: string } }) 
               borderRadius: 999,
             }}
           >
-            499€ / 699€
+            990€
           </div>
-          <div style={{ fontSize: 26, color: "#4A5A64" }}>{`+ 12€ ${dict.valueCardPeriod}`}</div>
+          <div style={{ fontSize: 26, color: "#4A5A64", textDecoration: "line-through" }}>1.490€</div>
         </div>
       </div>
     ),

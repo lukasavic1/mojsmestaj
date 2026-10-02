@@ -7,17 +7,20 @@ import { PlatformPill } from "./brand/PlatformMarks";
 export default function Faq({ dict }: { dict: Dictionary }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // The "do I have to leave Booking/Airbnb" question sits near the top, since
-  // it is the objection our positioning most often raises.
+  // Fit and guarantee questions come first: they are what a villa owner
+  // needs answered before writing to us.
   const items = [
     { q: dict.faqQ1, a: dict.faqA1, pills: false },
-    { q: dict.faqQ7, a: dict.faqA7, pills: true },
+    { q: dict.faqQ2, a: dict.faqA2, pills: false },
     { q: dict.faqQ3, a: dict.faqA3, pills: false },
     { q: dict.faqQ4, a: dict.faqA4, pills: false },
     { q: dict.faqQ5, a: dict.faqA5, pills: false },
     { q: dict.faqQ6, a: dict.faqA6, pills: false },
-    { q: dict.faqQ9, a: dict.faqA9, pills: false },
+    { q: dict.faqQ7, a: dict.faqA7, pills: true },
     { q: dict.faqQ8, a: dict.faqA8, pills: false },
+    { q: dict.faqQ9, a: dict.faqA9, pills: false },
+    { q: dict.faqQ10, a: dict.faqA10, pills: false },
+    { q: dict.faqQ11, a: dict.faqA11, pills: false },
   ];
 
   return (

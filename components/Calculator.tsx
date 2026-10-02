@@ -55,17 +55,17 @@ function Slider({
 }
 
 export default function Calculator({ dict }: { dict: Dictionary }) {
-  const [price, setPrice] = useState(55);
-  const [nights, setNights] = useState(18);
+  const [price, setPrice] = useState(150);
+  const [nights, setNights] = useState(15);
 
   const monthlyRevenue = price * nights;
-  // Round before multiplying, so the "149€ x 12" shown under the yearly figure
+  // Round before multiplying, so the "338€ x 12" shown under the yearly figure
   // actually produces it. Multiplying the unrounded fee is off by a few euro.
   const monthlyFee = Math.round(monthlyRevenue * COMMISSION_RATE);
   const yearlyLost = monthlyFee * 12;
 
   return (
-    <section className="px-6 py-16" id="izracun">
+    <section className="px-6 pb-16 pt-12" id="izracun">
       <div className="mx-auto max-w-[1140px]">
         <div className="mb-11 max-w-[640px]">
           <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-roof before:block before:h-[2px] before:w-[18px] before:bg-roof">
@@ -82,9 +82,9 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
             <Slider
               label={dict.calcPricePerNight}
               value={price}
-              min={15}
-              max={250}
-              step={5}
+              min={30}
+              max={600}
+              step={10}
               suffix="€"
               onChange={setPrice}
             />
@@ -131,7 +131,7 @@ export default function Calculator({ dict }: { dict: Dictionary }) {
             </div>
 
             <a
-              href="#cene"
+              href="#cena"
               className="mt-auto block rounded-full bg-roof px-6 py-4 text-center text-[15px] font-bold text-paper transition-colors hover:bg-roof-dark"
             >
               {dict.calcCta}

@@ -5,12 +5,9 @@ import Hero from "../../components/Hero";
 import Pain from "../../components/Pain";
 import ExampleSite from "../../components/ExampleSite";
 import Calculator from "../../components/Calculator";
-import Benefits from "../../components/Benefits";
-import Steps from "../../components/Steps";
-import Notify from "../../components/Notify";
-import Value from "../../components/Value";
-import Marketing from "../../components/Marketing";
-import TemplatesSection from "../../components/TemplatesSection";
+import Solution from "../../components/Solution";
+import Offer from "../../components/Offer";
+import Guarantee from "../../components/Guarantee";
 import Pricing from "../../components/Pricing";
 import Faq from "../../components/Faq";
 import Testimonials from "../../components/Testimonials";
@@ -29,19 +26,18 @@ export default async function LocalePage({
     <>
       <Nav dict={dict} locale={locale} />
       <main>
+        {/* Order follows the sales argument: problem, solution, what you get,
+            proof, guarantee, price, objections, contact. */}
         <Hero dict={dict} />
         <Pain dict={dict} />
         <Calculator dict={dict} />
-        <Benefits dict={dict} />
-        <Steps dict={dict} />
+        <Solution dict={dict} />
+        <Offer dict={dict} />
         <ExampleSite dict={dict} />
-        <TemplatesSection dict={dict} />
-        <Notify dict={dict} />
-        <Pricing dict={dict} />
-        <Value dict={dict} />
-        <Marketing dict={dict} />
-        <Faq dict={dict} />
         <Testimonials dict={dict} />
+        <Guarantee dict={dict} />
+        <Pricing dict={dict} />
+        <Faq dict={dict} />
         <FinalCta dict={dict} />
       </main>
       <Footer dict={dict} locale={locale} />

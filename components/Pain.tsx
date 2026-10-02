@@ -1,104 +1,70 @@
 import type { Dictionary } from "../lib/dictionaries";
-import { BrandTile } from "./brand/PlatformMarks";
 
-function Cross() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="mt-0.5 h-[18px] w-[18px] flex-none text-roof">
-      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="mt-0.5 h-[18px] w-[18px] flex-none text-olive">
-      <path d="M5 12l4 4 10-10" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const icons = {
+  eye: (
+    <>
+      <path d="M3 3l18 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path
+        d="M10.6 5.1A9.6 9.6 0 0112 5c5 0 8.5 4.5 9.5 7-.4 1-1.2 2.3-2.4 3.5M6.3 6.6C4.4 8 3.1 10 2.5 12c1 2.5 4.5 7 9.5 7 1.7 0 3.2-.5 4.5-1.3M9.9 9.9a3 3 0 004.2 4.2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </>
+  ),
+  percent: (
+    <path
+      d="M19 5L5 19M7.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm9 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
+  user: (
+    <path
+      d="M12 12a4 4 0 100-8 4 4 0 000 8zm-7 8c.8-3.4 3.6-5.5 7-5.5 1.3 0 2.5.3 3.5.8M17 17l4 4m0-4l-4 4"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
+};
 
 export default function Pain({ dict }: { dict: Dictionary }) {
-  const platformPoints = [
-    dict.painColPlatform1,
-    dict.painColPlatform2,
-    dict.painColPlatform3,
-    dict.painColPlatform4,
+  const points = [
+    { icon: icons.eye, title: dict.problem1Title, text: dict.problem1Text },
+    { icon: icons.percent, title: dict.problem2Title, text: dict.problem2Text },
+    { icon: icons.user, title: dict.problem3Title, text: dict.problem3Text },
   ];
-  const ownPoints = [dict.painColOwn1, dict.painColOwn2, dict.painColOwn3, dict.painColOwn4];
 
   return (
-    <section className="px-6 pb-16 pt-8 md:pt-16" id="problem">
+    <section className="px-6 pb-4 pt-8 md:pt-16" id="problem">
       <div className="mx-auto max-w-[1140px]">
-        <div className="mb-11 max-w-[680px]">
+        <div className="mb-11 max-w-[720px]">
           <div className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-roof before:block before:h-[2px] before:w-[18px] before:bg-roof">
-            {dict.painEyebrow}
+            {dict.problemEyebrow}
           </div>
           <h2 className="font-display text-[26px] font-semibold leading-tight text-sea sm:text-[32px] lg:text-[38px]">
-            {dict.painTitle}
+            {dict.problemTitle}
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{dict.painLede}</p>
+          <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{dict.problemLede}</p>
         </div>
 
-        <div className="relative grid gap-5 md:grid-cols-2 md:gap-6">
-          {/* Platforms only */}
-          <div className="rounded-2xl border border-sea/10 bg-paper p-7">
-            <div className="mb-5 flex items-center gap-2.5">
-              <BrandTile platform="booking" className="h-8 w-8" />
-              <BrandTile platform="airbnb" className="h-8 w-8" />
-              <h3 className="ml-1 text-lg font-semibold text-sea">{dict.painColPlatformTitle}</h3>
-            </div>
-            <ul>
-              {platformPoints.map((p, i) => (
-                <li
-                  key={i}
-                  className={`flex gap-3 py-3 text-[14.5px] leading-relaxed text-ink-soft ${i !== 0 ? "border-t border-sea/10" : ""}`}
-                >
-                  <Cross />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Your own site */}
-          <div className="rounded-2xl border-2 border-olive/40 bg-olive/[0.06] p-7">
-            <div className="mb-5 flex items-center gap-2.5">
-              <span className="flex h-8 w-8 flex-none items-center justify-center rounded-[22%] bg-sea">
-                <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px] text-paper">
-                  <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M5.5 10v9a1 1 0 001 1h11a1 1 0 001-1v-9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <div className="grid gap-5 md:grid-cols-3">
+          {points.map((p, i) => (
+            <div key={i} className="rounded-2xl border border-sea/10 bg-paper p-7">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-roof/10">
+                <svg viewBox="0 0 24 24" fill="none" className="h-[22px] w-[22px] text-roof">
+                  {p.icon}
                 </svg>
-              </span>
-              <h3 className="ml-1 text-lg font-semibold text-sea">{dict.painColOwnTitle}</h3>
+              </div>
+              <h3 className="mb-1.5 text-[17px] font-semibold text-sea">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-ink-soft">{p.text}</p>
             </div>
-            <ul>
-              {ownPoints.map((p, i) => (
-                <li
-                  key={i}
-                  className={`flex gap-3 py-3 text-[14.5px] font-medium leading-relaxed text-sea ${i !== 0 ? "border-t border-olive/20" : ""}`}
-                >
-                  <Check />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* "vs" chip sits between the two columns on desktop */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
-            <span className="rounded-full bg-sea px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-paper shadow-lg">
-              {dict.painVs}
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-8">
-          <a
-            href="#kontakt"
-            className="inline-flex items-center gap-2 rounded-full bg-roof px-6 py-4 text-[15px] font-bold text-paper shadow-[0_8px_20px_-8px_rgba(181,85,42,0.55)] transition-transform hover:-translate-y-0.5 hover:bg-roof-dark"
-          >
-            {dict.ctaMain}
-          </a>
+          ))}
         </div>
       </div>
     </section>
